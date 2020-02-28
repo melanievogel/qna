@@ -5,6 +5,7 @@ from pathlib import Path
 from nltk.corpus import wordnet as wn
 
 nlp = spacy.load("en_core_web_md") 
+nlp = spacy.load("en_trf_bertbaseuncased_lg")
 
 logging.basicConfig(filename='WnVsSpacy.log',level=logging.INFO)
 
