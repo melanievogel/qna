@@ -1,3 +1,2 @@
-lunch
-breakfast
-dinner
+coffee
+cafe

@@ -5,8 +5,12 @@ from pathlib import Path
 from nltk.corpus import wordnet as wn
 
 nlp = spacy.load("en_core_web_md") 
+#nlp = spacy.load("en_trf_bertbaseuncased_lg")
+#nlp = spacy.load("en_trf_xlnetbasecased_lg")
+#nlp = spacy.load("en_trf_robertabase_lg")
+#nlp = spacy.load("en_trf_distilbertbaseuncased_lg")
 
-logging.basicConfig(filename='WnVsSpacy.log',level=logging.INFO)
+logging.basicConfig(filename='logs.log',level=logging.INFO)
 
 def getSynset(word):
     return wn.synsets(word.rstrip())[0]
@@ -31,7 +35,7 @@ if __name__ == "__main__":
             syn2 = getSynset(j)
             wnSim = syn1.path_similarity(syn2)
             spacySim = calcSpacySimilarity(i,j)
-            logging.info("WN: " + i + j +str(wnSim))
+            logging.info("WN: " + i + j + str(wnSim))
             logging.info("Spacy: " + i + j + str(spacySim))
 
             inp = str(i + '\n' + j)
